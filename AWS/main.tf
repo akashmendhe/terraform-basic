@@ -5,7 +5,7 @@ region = "us-east-1"
 
 resource "aws_key_pair" "example"{
 key_name = "first-vm-key"
-public-key = file("C:\Users\Akash/.ssh/id_rsa.pub")
+public-key = file("~/.ssh/id_rsa.pub")
 }
 
 resource "aws_vpc" "myvpc" {
@@ -81,7 +81,7 @@ resource "aws_instance" "server" {
  connection {
     type        = "ssh"
     user        = "ubuntu"  # Replace with the appropriate username for your EC2 instance
-    private_key = file("C:\Users\Akash/.ssh/id_rsa")  # Replace with the path to your private key
+    private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
     host        = self.public_ip
   }
 
