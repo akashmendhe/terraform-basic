@@ -4,7 +4,7 @@ region = "us-east-1"
 
 
 resource "aws_key_pair" "example"{
-key_name = "first-vm-key"
+key_name = "terraform-demo-key"
 public_key = file("~/.ssh/id_rsa.pub")
 }
 
