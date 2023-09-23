@@ -5,7 +5,7 @@ region = "us-east-1"
 
 resource "aws_key_pair" "example"{
 key_name = "first-vm-key"
-public-key = file("~/.ssh/id_rsa.pub")
+public_key = file("~/.ssh/id_rsa.pub")
 }
 
 resource "aws_vpc" "myvpc" {
@@ -32,7 +32,7 @@ gateway_id = aws_internet_gateway.igw.id
 }
 }
 
-resource "aws_route__table_association" "route1" {
+resource "aws_route_table_association" "route1" {
 subnet_id = aws_subnet.sub1.id
 route_table_id = aws_route_table.RT.id
 }
@@ -46,7 +46,7 @@ description = "HTTP from vpc"
 from_port = 80
 to_port = 80
 protocol = "tcp"
-cidr_block = ["0.0.0.0/0"]
+cidr_blocks = ["0.0.0.0/0"]
 }
 
 ingress{
@@ -54,7 +54,7 @@ description = "SSH"
 from_port = 22
 to_port = 22
 protocol = "tcp"
-cidr_block = ["0.0.0.0/0"]
+cidr_blocks = ["0.0.0.0/0"]
 }
 
 egress{
@@ -62,7 +62,7 @@ description = "rsource from outside"
 from_port = 0
 to_port = 0
 protocol = "-1"
-cidr_block = ["0.0.0.0/0"]
+cidr_blocks = ["0.0.0.0/0"]
 }
 
 tags = {
